@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novel-pipeline"
+version = "1.0.0"
+description = "Generic chapter fetcher with optional illustrations and EPUB export"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ello08" }]
+dependencies = [
+    "beautifulsoup4>=4.12",
+    "ebooklib>=0.18",
+    "Pillow>=10",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+browser = ["selenium>=4.20"]
+
+[project.scripts]
+novel-pipeline = "novel_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["novel_pipeline*"]
